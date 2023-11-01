@@ -215,13 +215,13 @@ def obtener_notas_usuarios_2():
                 consulta = """
                     SELECT 
                         usuarios.nombre AS nombre_usuario, 
-                        COALESCE(notas.NOTA_ANSIEDAD, '') AS nota_ansiedad,
-                        COALESCE(notas.NOTA_DEPRESION, '') AS nota_depresion,
-                        COALESCE(notas.NOTA_TECNICAS, '') AS nota_tecnicas,
-                        COALESCE(notas.nota_sintomas_ansiedad, '') AS nota_sintomas_ansiedad,
-                        COALESCE(notas.nota_sintomas_depresion, '') AS nota_sintomas_depresion
-                    FROM notas
-                    JOIN usuarios ON notas.id_usuario = usuarios.id;
+                        COALESCE(NOTAS.NOTA_ANSIEDAD, '') AS nota_ansiedad,
+                        COALESCE(NOTAS.NOTA_DEPRESION, '') AS nota_depresion,
+                        COALESCE(NOTAS.NOTA_TECNICAS, '') AS nota_tecnicas,
+                        COALESCE(NOTAS.nota_sintomas_ansiedad, '') AS nota_sintomas_ansiedad,
+                        COALESCE(NOTAS.nota_sintomas_depresion, '') AS nota_sintomas_depresion
+                    FROM NOTAS
+                    JOIN usuarios ON NOTAS.id_usuario = usuarios.id;
                 """
                 cursor.execute(consulta)
 
